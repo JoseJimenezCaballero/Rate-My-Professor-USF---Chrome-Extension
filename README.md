@@ -5,7 +5,6 @@ This Chrome extension allows students to view professor ratings from Rate My Pro
 ## Features
 
 - Extracts professor names from the USF course catalog page.
-- Removes unwanted text (e.g., '(P)' for lecturers).
 - Appends a `div` next to each professor's name, which will contain the professor's rating and a link to their Rate My Professors profile.
 - Ratings are color-coded based on the professor's rating:
   - **Green** for ratings 4.0 and above.
