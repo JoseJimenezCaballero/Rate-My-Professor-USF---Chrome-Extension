@@ -71,7 +71,6 @@ fetch('http://localhost:8000//get-professors', {
 })
 .then(response => response.json())
 .then(data => {// Data is received in the format of an array with professor objects of which each object has a name, a rating and link to RMP
-    console.log(data);
     data.forEach(professor => {// Iterate through each professor object
         if(Object.entries(professor).length === 0){
             return;
