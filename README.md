@@ -25,7 +25,7 @@ To install and use the extension locally:
 ## How It Works
 
 1. **Extracting Professor Data**:
-   The extension collects professor names from the USF course catalog page and removes unnecessary information (like `(P)` for lecturers).
+   The extension collects professor names from the USF course catalog page.
    
 2. **Backend Integration**:
    The list of professor names is sent to a backend server, which returns the professor's rating and link to their Rate My Professors page.
