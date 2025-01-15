@@ -28,12 +28,24 @@ def getProfessors(query_name):
         if query_name[0] == first_initial and query_name.split()[-1] == last_name:
             professor_object['name'] = query_name
             
-            # Extract the rating
+            
+            # Extract the rating (the rating on the card is sometimes different than the actual rmp page of the professor)
+            '''
             rating_div = card.select_one('div[class^="CardNumRating__CardNumRatingNumber"]')
             professor_object['rating'] = rating_div.text.strip() if float(rating_div.text.strip()) > 0 else None
+            '''
             
             # Extract the link (href)
             professor_object['link'] = "https://www.ratemyprofessors.com" + card['href']
+
+            resp1 = requests.get(professor_object['link'])
+            soup1 = BeautifulSoup(resp1.content, 'html.parser')
+
+
+            # Extract the rating from the professor's page
+            rating_div = soup1.select_one('div[class^="RatingValue__Numerator"]')
+            professor_object['rating'] = rating_div.text.strip() if rating_div and float(rating_div.text.strip()) > 0 else None
+
             
             break  # Stop after finding the first match
 
