@@ -30,10 +30,6 @@ def getProfessors(query_name):
             
             
             # Extract the rating (the rating on the card is sometimes different than the actual rmp page of the professor)
-            '''
-            rating_div = card.select_one('div[class^="CardNumRating__CardNumRatingNumber"]')
-            professor_object['rating'] = rating_div.text.strip() if float(rating_div.text.strip()) > 0 else None
-            '''
             
             # Extract the link (href)
             professor_object['link'] = "https://www.ratemyprofessors.com" + card['href']
